@@ -8,6 +8,11 @@ set(Sources
     deneme.cpp
     main.cpp
 )
-
 add_library(${This} STATIC ${Sources} ${Headers})
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS}) 
+    target_link_libraries(${This} ${Boost_LIBRARIES})
+endif()
+add_definitions(-DBOOST_ALL_NO_LIB)
 

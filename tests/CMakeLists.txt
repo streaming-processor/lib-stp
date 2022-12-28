@@ -17,4 +17,11 @@ add_executable(
     ${Sources}
 )
 
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS}) 
+    target_link_libraries(test_sources ${Boost_LIBRARIES})
+endif()
+
+
+
 target_link_libraries(test_sources PRIVATE Catch2::Catch2WithMain ${OpenCV_LIBS} )
