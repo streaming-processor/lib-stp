@@ -15,4 +15,4 @@ if(Boost_FOUND)
     target_link_libraries(${This} ${Boost_LIBRARIES})
 endif()
 
-
+add_definitions(-DBOOST_ALL_NO_LIB)

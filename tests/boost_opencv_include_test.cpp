@@ -13,7 +13,6 @@ TEST_CASE("Mat object is created ", "[createImage]")
 
 }
 
-
 int128_t boost_product(long long A, long long B)
 {
     int128_t ans = (int128_t)A * B;
