@@ -2,13 +2,11 @@ cmake_minimum_required(VERSION 3.18 FATAL_ERROR)
 
 set(This stp)
 
-set(Headers 
-    deneme.hpp)
-set(Sources
-    deneme.cpp
-    main.cpp
+
+include_directories(.
+    /logger
 )
-add_library(${This} STATIC ${Sources} ${Headers})
+#add_library(${This} STATIC ${HEADERS})
 
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS}) 
