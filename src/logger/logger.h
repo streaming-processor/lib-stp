@@ -51,7 +51,7 @@ namespace Logger
             sinks.push_back(rotating_sink);
 
             threadPool = std::make_shared<spdlog::details::thread_pool>(10,2);
-            logger = std::make_shared<spdlog::async_logger>("falcon", sinks.begin(), sinks.end(), threadPool, spdlog::async_overflow_policy::block);
+            logger = std::make_shared<spdlog::async_logger>("stp", sinks.begin(), sinks.end(), threadPool, spdlog::async_overflow_policy::block);
             logger->set_level((spdlog::level::level_enum)logLevel);
             spdlog::set_default_logger(logger);
             spdlog::flush_every(std::chrono::seconds(1));
@@ -81,4 +81,3 @@ namespace Logger
 #define STPLOG_WARN SPDLOG_WARN
 #define STPLOG_ERROR SPDLOG_ERROR
 #define STPLOG_CRITICAL SPDLOG_CRITICAL
-
