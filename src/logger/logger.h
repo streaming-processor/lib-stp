@@ -1,10 +1,9 @@
 #pragma once
-#ifndef _WIN32
 
 #ifdef NDEBUG
     #define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_TRACE
 #else
-    #define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_TRACE
+    #define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_DEBUG
 #endif
 
 #include <iostream>
@@ -83,27 +82,3 @@ namespace Logger
 #define STPLOG_ERROR SPDLOG_ERROR
 #define STPLOG_CRITICAL SPDLOG_CRITICAL
 
-#else // _WIN32
-#include "spdlog/fmt/fmt.h"
-
-#define STPLOG_LEVEL_TRACE 0
-#define STPLOG_LEVEL_DEBUG 0
-#define STPLOG_LEVEL_INFO 0
-#define STPLOG_LEVEL_WARN 0
-#define STPLOG_LEVEL_ERROR 0
-#define STPLOG_LEVEL_CRITICAL 0
-#define STPLOG_LEVEL_OFF 0
-
-#define INIT_LOGGER(config, logLevel)
-#define SHUTDOWN_LOGGER
-
-#define STPLOG_CERR(str, ...) (std::cerr<<fmt::format(str, ##__VA_ARGS__)<<std::endl)
-
-#define STPLOG_TRACE
-#define STPLOG_DEBUG
-#define STPLOG_INFO STPLOG_CERR
-#define STPLOG_WARN STPLOG_CERR
-#define STPLOG_ERROR STPLOG_CERR
-#define STPLOG_CRITICAL STPLOG_CERR
-
-#endif
